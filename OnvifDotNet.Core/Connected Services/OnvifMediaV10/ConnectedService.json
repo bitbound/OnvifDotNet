@@ -1,0 +1,27 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "http://www.onvif.org/ver10/media/wsdl/media.wsdl"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReference1"
+    ],
+    "references": [
+      "Onvif.Core, {Onvif.Core, 2.2.2}",
+      "OnvifDiscovery, {OnvifDiscovery, 1.2.2}",
+      "RtspClientSharp, {RtspClientSharp, 1.3.3}",
+      "System.ServiceModel, {System.ServiceModel.Primitives, 4.5.3}",
+      "System.ServiceModel.Duplex, {System.ServiceModel.Duplex, 4.5.3}",
+      "System.ServiceModel.Http, {System.ServiceModel.Http, 4.5.3}",
+      "System.ServiceModel.NetTcp, {System.ServiceModel.NetTcp, 4.5.3}",
+      "System.ServiceModel.Primitives, {System.ServiceModel.Primitives, 4.5.3}",
+      "System.ServiceModel.Security, {System.ServiceModel.Security, 4.5.3}"
+    ],
+    "targetFramework": "net6.0",
+    "typeReuseMode": "All"
+  }
+}

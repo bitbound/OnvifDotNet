@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var source = Model.HasData ?
+        $"{Request.Scheme}://{Request.Host}/api/stream/{Model.CameraIp}/{Model.ProfileToken}" :
+        "";
+}
+
+<div style="display: grid; grid-template-rows: auto 1fr; row-gap: 15px">
+    <form asp-action="post" style="display: flex; justify-content: flex-end">
+        <div class="d-inline-block" style="align-self: flex-end">
+            <label class="form-label">Camera IP</label>
+            <input asp-for="CameraIp"  class="form-control" />
+        </div>
+        <div class="d-inline-block"  style="align-self: flex-end">
+            <label class="form-label">Profile Token</label>
+            <input asp-for="ProfileToken"  class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary"  style="align-self: flex-end">
+            Load
+        </button>
+    </form>
+    <div>
+        <video src="@source" autoplay muted controls style="max-width: 100%; max-height:100%"></video>
+    </div>
+</div>

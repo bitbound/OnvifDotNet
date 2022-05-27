@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibVLCSharp" Version="3.6.6" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.17.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnvifDotNet.Core\OnvifDotNet.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
