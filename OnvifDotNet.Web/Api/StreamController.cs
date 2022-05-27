@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnvifDotNet.Core.Helpers;
 using System.Diagnostics;
 
 namespace OnvifDotNet.Web.Api

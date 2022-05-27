@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibVLCSharp.Shared;
 
-namespace OnvifDotNet
+namespace OnvifDotNet.Core.Helpers
 {
     public static class OnvifHelper
     {
@@ -58,17 +58,17 @@ namespace OnvifDotNet
         }
 
         public static async Task<MediaUri> GetStreamingUri(
-            string cameraIp, 
-            string profileToken, 
+            string cameraIp,
+            string profileToken,
             StreamType streamType = StreamType.RTPUnicast,
             TransportProtocol transportProtocol = TransportProtocol.RTSP)
         {
             var streamSetup = new StreamSetup()
             {
                 Stream = streamType,
-                Transport = new Transport() 
-                { 
-                    Protocol = transportProtocol 
+                Transport = new Transport()
+                {
+                    Protocol = transportProtocol
                 }
             };
 
@@ -78,17 +78,17 @@ namespace OnvifDotNet
         }
 
         public static async Task RecordStream(
-            string ipAddress, 
-            string profileToken, 
-            StreamType streamType, 
-            TransportProtocol transport, 
+            string ipAddress,
+            string profileToken,
+            StreamType streamType,
+            TransportProtocol transport,
             string outputPath,
             CancellationToken cancellationToken = default)
         {
 
             using var libvlc = new LibVLC();
             using var mediaPlayer = new MediaPlayer(libvlc);
-            
+
             libvlc.Log += (sender, e) =>
             {
                 Console.WriteLine($"[{e.Level}] {e.Module}:{e.Message}");
@@ -100,14 +100,14 @@ namespace OnvifDotNet
                 libvlc,
                 mediaUri.Uri,
                 FromType.FromLocation);
-            
+
             media.AddOption(":sout=#file{dst=" + outputPath + "}");
             //media.AddOption(":sout-keep");
             mediaPlayer.Play(media);
 
-            
+
             await Task.Run(cancellationToken.WaitHandle.WaitOne);
-            
+
             mediaPlayer.Stop();
         }
     }

@@ -1,5 +1,5 @@
 ﻿using OnvifDeviceV10;
-using OnvifDotNet;
+using OnvifDotNet.Core.Helpers;
 using OnvifMediaV10;
 using System.CommandLine;
 using System.Text.Json;
