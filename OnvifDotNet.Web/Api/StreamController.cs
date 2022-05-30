@@ -15,8 +15,7 @@ namespace OnvifDotNet.Web.Api
             var psi = new ProcessStartInfo()
             {
                 FileName = "ffmpeg.exe",
-                //Arguments = $"-i {mediaUri.Uri} -r 10 -f hls pipe:1",
-                Arguments = $"-i {mediaUri.Uri} -r 10 -f webm pipe:1",
+                Arguments = $"-i {mediaUri.Uri} -r 10 -f ogg pipe:1",
                 RedirectStandardOutput = true
             };
 
@@ -27,14 +26,9 @@ namespace OnvifDotNet.Web.Api
                 return;
             }
 
-            //Response.Headers.ContentType = "application/x-mpegurl";
-            Response.Headers.ContentType = "video/webm";
+            Response.Headers.ContentType = "video/ogg";
 
-            while (!proc.HasExited && !Request.HttpContext.RequestAborted.IsCancellationRequested)
-            {
-                await proc.StandardOutput.BaseStream.CopyToAsync(Response.Body);
-                
-            }
+            await proc.StandardOutput.BaseStream.CopyToAsync(Response.Body);
         }
     }
 }
