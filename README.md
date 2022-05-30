@@ -1,6 +1,8 @@
 # OnvifDotNet
 Sample library and projects for interacting with ONVIF-compliant IP cameras.
 
+Note: ffmpeg.exe must be copied to the bin directory for the web project to work.
+
 Example Usages:
 
 ```
